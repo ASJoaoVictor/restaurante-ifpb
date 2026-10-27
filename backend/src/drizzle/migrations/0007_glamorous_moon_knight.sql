@@ -1,0 +1,1 @@
+ALTER TABLE "inscricoes" ADD CONSTRAINT "unique_aluno_chamada" UNIQUE("aluno_id","chamada_id");

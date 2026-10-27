@@ -1,0 +1,12 @@
+database/
+letsencrypt/
+.env
+.DS_Store
+.env*.local
+.vercel
+*.pem
+*.tsbuildinfo
+logs/
+node_modules/
+temp/
+dump.sql

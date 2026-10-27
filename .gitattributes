@@ -1,0 +1,14 @@
+# Lock files
+package-lock.json linguist-generated=true
+yarn.lock linguist-generated=true
+bun.lock linguist-generated=true
+bun.lockb linguist-generated=true
+
+# Front-end
+frontend/src/api/endpoints/** linguist-generated=true
+frontend/src/api/schemas/** linguist-generated=true
+frontend/src/utils/router.ts linguist-generated=true
+frontend/src/assets/** linguist-generated=true
+
+# Back-end
+backend/src/drizzle/migrations/meta/** linguist-generated=true

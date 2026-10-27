@@ -1,0 +1,1 @@
+ALTER TABLE "alunos" ALTER COLUMN "turma_id" DROP NOT NULL;

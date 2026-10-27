@@ -1,0 +1,1 @@
+ALTER TABLE "chamada_preset" ADD COLUMN "dia_da_semana" integer;

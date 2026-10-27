@@ -1,0 +1,92 @@
+name: Testing
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  frontend-test-types:
+    name: Front-end TypeScript Types Test
+    runs-on: ubuntu-latest
+    container: imbios/bun-node:22-slim
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Installing dependencies
+        run: bun install --frozen-lockfile
+      - name: Checking TypeScript Types
+        run: bun run test:types
+
+  backend-test-types:
+    name: Back-end TypeScript Types Test
+    runs-on: ubuntu-latest
+    container: imbios/bun-node:22-slim
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Installing dependencies
+        run: bun install --frozen-lockfile
+      - name: Checking TypeScript Types
+        run: bun run test:types
+
+  backend-test-unit:
+    name: Back-end Unit Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    env:
+      DATABASE_URL: postgres://postgres:root@postgres:5432/meals_test
+    container: imbios/bun-node:22-slim
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: root
+          POSTGRES_DB: meals_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Installing dependencies
+        run: bun install --frozen-lockfile
+      - name: Running Unit Tests
+        run: bun run test:unit
+
+  backend-test-e2e:
+    name: Back-end E2E Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    env:
+      DATABASE_URL: postgres://postgres:root@postgres:5432/meals_test
+    container: imbios/bun-node:22-slim
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: root
+          POSTGRES_DB: meals_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Installing dependencies
+        run: bun install --frozen-lockfile
+      - name: Running E2E Tests
+        run: bun run test:e2e

@@ -1,0 +1,1 @@
+ALTER TABLE "alunos" ADD COLUMN "possui_nee" boolean DEFAULT false NOT NULL;

@@ -1,0 +1,117 @@
+/**
+ * Customization of Swagger UI
+ * - Adjusts the layout of operations, parameters, and responses
+ * - Improves usability and responsiveness
+ *
+ * @author: Jefferson Dantas
+ */
+
+/* Transforms the layout into Flexbox */
+.opblock-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Aligns the "Execute" and "Clear" buttons to the right */
+.opblock-body .execute-wrapper,
+.opblock-body .btn-group {
+  order: 1;
+  width: 100%;
+  display: block;
+  text-align: right;
+  padding: 8px;
+}
+
+/* Reduces the size of the buttons */
+.btn.execute,
+.btn.btn-clear {
+  width: fit-content !important;
+}
+
+/* Hides the loading spinner */
+.opblock-body .loading-container {
+  display: none;
+}
+
+/* Places the Parameters in 2nd position */
+.opblock-body .opblock-section {
+  order: 2;
+  width: 100%;
+}
+
+/* Parameters next to Responses on large screens */
+@media screen and (min-width: 62em) {
+  .opblock-body .opblock-section {
+    max-width: 400px;
+  }
+}
+
+/* Places the Responses in 3rd position */
+.opblock-body .responses-wrapper {
+  order: 3;
+  flex: 1;
+}
+
+/* Displays Responses and Server Response side by side */
+.responses-inner {
+  display: flex;
+  gap: 36px;
+}
+
+/* Stacks Responses on smaller screens */
+@media screen and (max-width: 92em) {
+  .responses-inner {
+    flex-direction: column;
+  }
+}
+
+/* Animation when displaying Server Response */
+.responses-inner > div:first-child {
+  animation: server-response-entrance 1s ease;
+}
+
+/* Server Response entrance animation */
+@keyframes server-response-entrance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Adjusts the width of the Responses table */
+.responses-inner > table {
+  flex: 1;
+}
+
+/* Hides the "Responses" title after server response */
+.responses-inner > div:first-child > h4 {
+  display: none;
+}
+
+/* Adjusts the height of the Responses table */
+.responses-table {
+  height: fit-content;
+}
+
+/* Makes the Responses table more transparent */
+.responses-inner > table.responses-table {
+  opacity: 0.7;
+  transition: 0.3s ease;
+}
+
+.responses-inner > table.responses-table:hover {
+  opacity: 1;
+}
+
+/* Limits the height of headers in the result */
+.responses-inner > div:first-child .response-col_description > div:last-child .microlight {
+  max-height: 100px;
+  overflow: auto;
+}
+
+/* Hides the Links column in the Responses table */
+.response-col_links {
+  display: none;
+}

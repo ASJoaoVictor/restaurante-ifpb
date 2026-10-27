@@ -1,0 +1,1 @@
+ALTER TABLE "alunos" ALTER COLUMN "faltas" SET DEFAULT 0;

@@ -1,0 +1,11 @@
+export * from './aluno.schema'
+export * from './campus.schema'
+export * from './refeicao.schema'
+export * from './chamada.schema'
+export * from './curso.schema'
+export * from './error-reports.schema'
+export * from './inscricao.schema'
+export * from './turma.schema'
+export * from './user.schema'
+
+export * from '../enums'

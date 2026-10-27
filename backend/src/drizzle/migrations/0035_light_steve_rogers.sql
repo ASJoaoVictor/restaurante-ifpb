@@ -1,0 +1,2 @@
+ALTER TABLE "preferencias_notificacoes" DROP CONSTRAINT "unique_aluno_refeicao";--> statement-breakpoint
+ALTER TABLE "preferencias_notificacoes" ADD CONSTRAINT "unique_aluno_refeicao" UNIQUE NULLS NOT DISTINCT("aluno_id","refeicao_id");

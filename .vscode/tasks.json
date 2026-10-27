@@ -1,0 +1,120 @@
+{
+  "version": "2.0.0",
+
+  "tasks": [
+    {
+      "label": "Run in Development",
+      "icon": { "id": "wrench", "color": "terminal.ansiYellow" },
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "dependsOn": ["Front-end Dev", "Back-end Dev"]
+    },
+
+    {
+      "label": "Front-end Dev",
+      "icon": { "id": "wrench", "color": "terminal.ansiYellow" },
+      "type": "shell",
+      "command": "cd frontend && bun run dev",
+      "windows": { "options": { "shell": { "executable": "cmd", "args": ["/c"] } } },
+      "problemMatcher": [],
+      "presentation": { "reveal": "silent" }
+    },
+
+    {
+      "label": "Back-end Dev",
+      "icon": { "id": "wrench", "color": "terminal.ansiYellow" },
+      "type": "shell",
+      "command": "cd backend && bun run dev",
+      "windows": { "options": { "shell": { "executable": "cmd", "args": ["/c"] } } },
+      "problemMatcher": [],
+      "presentation": { "reveal": "silent" }
+    },
+
+    {
+      "label": "Prepare for Commit",
+      "icon": { "id": "git-commit", "color": "terminal.ansiBlue" },
+      "dependsOrder": "parallel",
+      "dependsOn": ["Prepare for Commit (back-end)", "Prepare for Commit (front-end)"],
+      "problemMatcher": [],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    },
+
+    {
+      "label": "Prepare for Commit (back-end)",
+      "icon": { "id": "git-commit", "color": "terminal.ansiBlue" },
+      "dependsOrder": "sequence",
+      "dependsOn": ["Test (back-end)", "Lint (back-end)", "Format (back-end)"],
+      "problemMatcher": [],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    },
+
+    {
+      "label": "Prepare for Commit (front-end)",
+      "icon": { "id": "git-commit", "color": "terminal.ansiBlue" },
+      "dependsOrder": "sequence",
+      "dependsOn": ["Test (front-end)", "Lint (front-end)", "Format (front-end)"],
+      "problemMatcher": [],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    },
+
+    {
+      "label": "Test (back-end)",
+      "icon": { "id": "check-all", "color": "terminal.ansiGreen" },
+      "type": "shell",
+      "command": "cd backend && bun run test",
+      "windows": { "options": { "shell": { "executable": "cmd", "args": ["/c"] } } },
+      "problemMatcher": ["$tsc"],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    },
+
+    {
+      "label": "Test (front-end)",
+      "icon": { "id": "check-all", "color": "terminal.ansiGreen" },
+      "type": "shell",
+      "command": "cd frontend && bun run test",
+      "windows": { "options": { "shell": { "executable": "cmd", "args": ["/c"] } } },
+      "problemMatcher": ["$tsc"],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    },
+
+    {
+      "label": "Lint (back-end)",
+      "icon": { "id": "code-review", "color": "terminal.ansiMagenta" },
+      "type": "shell",
+      "command": "cd backend && bun run lint",
+      "windows": { "options": { "shell": { "executable": "cmd", "args": ["/c"] } } },
+      "problemMatcher": ["$eslint-stylish"],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    },
+
+    {
+      "label": "Lint (front-end)",
+      "icon": { "id": "code-review", "color": "terminal.ansiMagenta" },
+      "type": "shell",
+      "command": "cd frontend && bun run lint",
+      "windows": { "options": { "shell": { "executable": "cmd", "args": ["/c"] } } },
+      "problemMatcher": ["$eslint-stylish"],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    },
+
+    {
+      "label": "Format (back-end)",
+      "icon": { "id": "symbol-structure", "color": "terminal.ansiRed" },
+      "type": "shell",
+      "command": "cd backend && bun run format",
+      "windows": { "options": { "shell": { "executable": "cmd", "args": ["/c"] } } },
+      "problemMatcher": [],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    },
+
+    {
+      "label": "Format (front-end)",
+      "icon": { "id": "symbol-structure", "color": "terminal.ansiRed" },
+      "type": "shell",
+      "command": "cd frontend && bun run format",
+      "windows": { "options": { "shell": { "executable": "cmd", "args": ["/c"] } } },
+      "problemMatcher": [],
+      "presentation": { "close": true, "reveal": "silent", "panel": "dedicated" }
+    }
+  ]
+}

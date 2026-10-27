@@ -1,0 +1,27 @@
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  touch-action: manipulation;
+  scroll-behavior: smooth;
+  min-height: 100svh;
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+#g_a11y_announcement {
+  top: -10000px !important;
+}
+
+*:focus-visible {
+  --focus-ring-color: var(--chakra-colors-color-palette-focus-ring);
+  outline-color: var(--focus-ring-color) !important;
+}

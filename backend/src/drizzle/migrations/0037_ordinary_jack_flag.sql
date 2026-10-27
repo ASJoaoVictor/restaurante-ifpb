@@ -1,0 +1,1 @@
+ALTER TABLE "alunos" DROP COLUMN "tem_edital";

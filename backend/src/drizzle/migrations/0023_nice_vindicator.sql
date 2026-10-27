@@ -1,0 +1,1 @@
+ALTER TABLE "inscricoes" ADD COLUMN "presenca" "presenca_status" DEFAULT 'pendente' NOT NULL;

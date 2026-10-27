@@ -1,0 +1,1 @@
+ALTER TABLE "campi" ADD COLUMN "dias_de_suspensao" integer DEFAULT 30 NOT NULL;

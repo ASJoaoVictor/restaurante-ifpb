@@ -1,0 +1,1 @@
+ALTER TABLE "inscricoes" DROP COLUMN "falta";
